@@ -1,0 +1,15 @@
+class Solution
+{
+    
+    ArrayList<Integer> rotate(int N, int D)
+    {
+        // your code here
+        ArrayList<Integer> arr=new ArrayList<>();
+        D=D%16;
+        int left=((N<<D)|N>>(16-D))&0xFFFF;
+        int right=((N>>D)|N<<(16-D))&0xFFFF;
+        arr.add(left);
+        arr.add(right);
+        return arr;
+    }
+}
