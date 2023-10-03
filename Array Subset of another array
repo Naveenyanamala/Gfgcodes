@@ -1,0 +1,25 @@
+class Compute {
+    public String isSubset( long a1[], long a2[], long n, long m) {
+        HashMap<Long ,Integer> map = new HashMap<>();
+        for(long it:a1){
+            int value=map.getOrDefault(it,0);
+            map.put(it,value+1);
+        }
+        
+        for(long a:a2){
+            if(!map.containsKey(a)){
+                return "No";
+            }
+            int count=map.get(a);
+            count--;
+            if(count!=0){
+                map.put(a,count);
+            }
+            else{
+                map.remove(a);
+            }
+        }
+        return "Yes";
+        
+    }
+}
