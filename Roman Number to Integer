@@ -1,0 +1,24 @@
+class Solution {
+    // Finds decimal value of a given roman numeral
+    public int romanToDecimal(String str) {
+        // code here
+        int total=0,value=0;
+        HashMap<Character,Integer> map=new HashMap<>();
+        map.put('I',1); map.put('V',5); map.put('X',10);
+        map.put('L',50); map.put('C',100); map.put('D',500);
+        map.put('M',1000);
+        total=map.get(str.charAt(str.length()-1));
+        for(int i=str.length()-2;i>=0;i--){
+            int x=map.get(str.charAt(i));
+            int n=map.get(str.charAt(i+1));
+            if(x<n){
+                total-=x;
+            }
+            else{
+                total+=x;
+            }
+           
+        }
+        return total;
+    }
+}
