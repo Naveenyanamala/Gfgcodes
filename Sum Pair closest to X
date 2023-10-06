@@ -1,0 +1,24 @@
+class Solution {
+    int[] sumClosest(int[] arr, int x) {
+        // code here 
+          int low = 0, high = arr.length - 1,sum=0,pair1=0,pair2=0,min=Integer.MAX_VALUE;
+        int pair[] = new int[2];
+        while(low<high){
+           sum = arr[low]+arr[high];
+           if(min > Math.abs(sum-x)){
+               min = Math.abs(sum-x);
+               pair[0] = arr[low];
+               pair[1] = arr[high];
+           }
+          if((arr[low]+arr[high]) == 0) return pair;
+          if((arr[low]+arr[high]) < x){
+              low++;
+          }
+          else{
+              high--;
+          }
+        
+        }
+        return pair;
+    }
+}
