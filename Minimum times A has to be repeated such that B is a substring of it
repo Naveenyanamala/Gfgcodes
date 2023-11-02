@@ -1,0 +1,20 @@
+class Solution {
+    static int minRepeats(String A, String B) {
+        // code 
+        int count=1;
+        String s=A;
+        while(s.length()<B.length()){
+             count++;
+             s=s+A;
+        }
+        if(s.contains(B)){
+            return count;
+        }
+        s+=A;
+        if(s.contains(B)){
+            return count+=1;
+        }
+        return -1;
+        
+    }
+};
