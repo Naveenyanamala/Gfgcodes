@@ -1,0 +1,18 @@
+class Solution{
+    void subset(ArrayList<Integer> arr,int sum,int n,ArrayList<Integer> list){
+        if(n<0){
+            list.add(sum);
+            return;
+        }
+        
+        subset(arr,sum+arr.get(n),n-1,list);
+        subset(arr,sum,n-1,list);
+    }
+    ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N){
+        // code here
+        ArrayList<Integer> list=new ArrayList<>();
+        int sum=0;
+        subset(arr,sum,N-1,list);
+        return list;
+    }
+}
